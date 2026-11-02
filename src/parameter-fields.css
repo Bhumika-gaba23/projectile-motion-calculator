@@ -1,0 +1,406 @@
+.parameter-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
+.parameter-input {
+  display: flex;
+  align-items: center;
+  width: 132px;
+  height: 46px;
+  padding: 0 13px;
+  background: #f7f7f4;
+  border: 1px solid #dfdfd9;
+  border-radius: 9px;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.parameter-input:focus-within {
+  background: #fff;
+  border-color: #8caef4;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
+}
+
+.parameter-input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #172033;
+  font-family: 'DM Mono';
+  font-size: 14px;
+}
+
+.parameter-input span {
+  flex: none;
+  margin-left: 8px;
+  color: #9299a4;
+  font-family: 'DM Mono';
+  font-size: 9px;
+}
+
+.unit-section {
+  padding: 0 0 12px;
+}
+
+.unit-section-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #7b8492;
+  font-family: 'DM Mono';
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.unit-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.unit-options button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border: 1px solid #e3e3de;
+  border-radius: 8px;
+  background: #f8f8f5;
+  cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s;
+}
+
+.unit-options button:hover {
+  border-color: #b9c9ec;
+}
+
+.unit-options button.active {
+  border-color: #9bb7f1;
+  background: #f3f7ff;
+  color: #2563eb;
+}
+
+.unit-options strong {
+  font-size: 10px;
+}
+
+.unit-options small {
+  color: #969da8;
+  font-family: 'DM Mono';
+  font-size: 7px;
+}
+
+.custom-gravity {
+  width: 100%;
+  height: 40px;
+  margin-top: 7px;
+}
+
+.custom-gravity input {
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+}
+
+.custom-gravity:focus-within {
+  background: #fff;
+  border-color: #8caef4;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
+}
+
+.chart-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.live-readout {
+  display: flex;
+  gap: 5px;
+}
+
+.live-readout span {
+  padding: 5px 7px;
+  border: 1px solid #e4e6e9;
+  border-radius: 5px;
+  background: #fafaf8;
+  color: #667085;
+  font-family: 'DM Mono';
+  font-size: 8px;
+}
+
+.playback-bar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  margin-top: 4px;
+}
+
+.play-button,
+.replay-button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #dfe2e7;
+  border-radius: 50%;
+  background: #fff;
+  color: #536071;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, transform .2s;
+}
+
+.play-button {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
+.play-button:hover,
+.replay-button:hover {
+  transform: scale(1.07);
+}
+
+.replay-button:hover {
+  border-color: #9bb7f1;
+  color: #2563eb;
+}
+
+.timeline {
+  --timeline-progress: 100%;
+  width: 100%;
+  height: 3px;
+  appearance: none;
+  border-radius: 4px;
+  outline: 0;
+  background: linear-gradient(to right, #2563eb var(--timeline-progress), #e1e4e8 var(--timeline-progress));
+  cursor: pointer;
+}
+
+.timeline::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  appearance: none;
+  border: 2px solid #2563eb;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .18);
+}
+
+@media (max-width: 900px) {
+  .live-readout,
+  .chart-legend {
+    display: none;
+  }
+}
+
+/* Single-frame desktop dashboard */
+@media (min-width: 761px) and (min-height: 650px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  main {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 58px 116px minmax(0, 1fr);
+    padding-bottom: 16px;
+  }
+
+  .site-header {
+    height: 58px;
+  }
+
+  .hero {
+    padding: 18px 0 16px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 3vw, 45px);
+    line-height: .93;
+  }
+
+  .hero .kicker {
+    margin-bottom: 9px;
+  }
+
+  .hero > p {
+    max-width: 390px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .app-grid {
+    min-height: 0;
+    height: 100%;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .controls {
+    position: static;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding: 16px 20px;
+  }
+
+  .panel-title-row {
+    margin-bottom: 7px;
+  }
+
+  .unit-section {
+    padding-bottom: 6px;
+  }
+
+  .unit-section-label {
+    margin-bottom: 4px;
+  }
+
+  .unit-options button {
+    padding: 5px 7px;
+  }
+
+  .panel-title-row h2,
+  .chart-header h2 {
+    font-size: 17px;
+    margin-top: 3px;
+  }
+
+  .parameter-field {
+    min-height: 0;
+    padding: 8px 0;
+  }
+
+  .parameter-input {
+    width: 116px;
+    height: 36px;
+  }
+
+  .field-block {
+    padding-top: 11px;
+  }
+
+  .gravity-grid {
+    margin-top: 7px;
+    gap: 4px;
+  }
+
+  .gravity-grid button {
+    padding: 6px 8px;
+  }
+
+  .custom-gravity {
+    height: 32px;
+    margin-top: 4px;
+  }
+
+  .drag-card {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .drag-coefficient {
+    padding-top: 8px;
+  }
+
+  .drag-coefficient label {
+    margin-bottom: 8px;
+  }
+
+  .workspace {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: 88px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .results-grid {
+    gap: 8px;
+  }
+
+  .result-card {
+    padding: 12px 14px;
+  }
+
+  .result-value {
+    margin-top: 8px;
+    font-size: 19px;
+  }
+
+  .chart-panel {
+    min-height: 0;
+    height: 100%;
+    padding: 16px 20px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chart-header {
+    flex: none;
+  }
+
+  .chart-wrap {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 800px) {
+  main {
+    grid-template-rows: 60px 102px minmax(0, 1fr);
+    padding-bottom: 14px;
+  }
+
+  .app-grid {
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .controls {
+    padding: 16px 22px;
+  }
+
+  .parameter-field {
+    padding: 8px 0;
+  }
+
+  .hero {
+    padding: 12px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 2.6vw, 41px);
+  }
+
+  .gravity-grid button {
+    padding: 5px 8px;
+  }
+
+  .drag-card {
+    margin-top: 7px;
+    padding-top: 8px;
+  }
+
+  .workspace {
+    grid-template-rows: 96px minmax(0, 1fr);
+    gap: 14px;
+  }
+}

@@ -1,0 +1,9 @@
+.target-cursor canvas {
+  cursor: crosshair !important;
+}
+
+.velocity-readout {
+  border-color: rgba(16, 185, 129, .3) !important;
+  background: rgba(16, 185, 129, .07) !important;
+  color: #07835c !important;
+}
